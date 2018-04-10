@@ -70,7 +70,8 @@ export default {
   name: 'App',
   computed: {
     kk_defaultActiveIndex () {
-      return 'kk-menu' + this.$route.path.replace('/', '-')
+      console.log(this.$route.name)
+      return 'kk-menu-' + this.$route.name
     },
     kk_allMenuDisabled () {
       return false

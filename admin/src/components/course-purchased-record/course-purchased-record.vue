@@ -1,6 +1,5 @@
 <template>
   <div class="kk-course-purchased-record">
-    Iam course purchased record.
   </div>
 </template>
 
