@@ -2,7 +2,7 @@
   <div id="app">
     <div class="kk-nav">
       <div class="kk-nav-logo">
-        <img src="./assets/logo.png">
+        <img src="./assets/logo.jpg">
       </div>
       <div class="kk-nav-admin">
         <el-popover ref="kk-ref-popover-admin" placement="bottom" width="100" trigger="hover">
@@ -11,18 +11,18 @@
             <li><span>退出</span></li>
           </ul>
         </el-popover>
-        <span v-popover:kk-ref-popover-admin><i class="el-icon-setting"></i></span>
+        <span v-popover:kk-ref-popover-admin v-show="kk_logined"><i class="el-icon-setting"></i></span>
       </div>
     </div>
     <div class="kk-main">
-      <div class="kk-main-nav">
+      <div class="kk-main-nav" v-show="kk_logined">
         <!--设置 el-menu 路由：https://segmentfault.com/a/1190000007810151-->
         <el-menu
           :default-active="kk_defaultActiveIndex"
           class="kk-main-nav-menu"
           background-color="#3B3B3B"
           text-color="#D8D8D8"
-          active-text-color="#56B6FF"
+          active-text-color="#50AF3A"
           :router="true">
           <el-menu-item index="kk-menu-home-page" :disabled="kk_allMenuDisabled" :route="{name:'home-page'}">
             <i class="el-icon-menu"></i>
@@ -70,30 +70,43 @@ export default {
   name: 'App',
   computed: {
     kk_defaultActiveIndex () {
-      console.log(this.$route.name)
-      return 'kk-menu-' + this.$route.name
+      let routeStrs = this.$route.path.split('/')
+      let routeStr = this.$route.name
+      if (routeStrs.length > 2) {
+        routeStr = routeStrs[1]
+      }
+      return 'kk-menu-' + routeStr
     },
     kk_allMenuDisabled () {
       return false
+    },
+    kk_logined () {
+      return this.$store.state.logined
     }
+  },
+  created () {
+
+  },
+  mounted () {
+    // this.$router.push('home-page')
   }
 }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   #app
-    height: 100%
     display: flex
     flex-direction: column
+    height: 100%
     .kk-nav
       display: flex
       align-items: center
       width: 100%
       height: 45px
       line-height: 44px
-      border-bottom: 1px solid #3B3B3B
-      background: linear-gradient(#447BCC, #4A74B0)
-      color: #FFFFFF
+      border-bottom: 1px solid #D8D8D8
+      background: #FFFFFF//linear-gradient(#447BCC, #4A74B0)
+      color: #50AF3A
       .kk-nav-logo
         & > img
           display: block

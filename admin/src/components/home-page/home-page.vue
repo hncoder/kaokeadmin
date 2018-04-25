@@ -38,14 +38,21 @@
 </template>
 
 <script type="text/ecmascript-6">
-export default {}
+export default {
+  created () {
+  },
+  mounted () {
+    this.GET(this.$API.URI.HOME, {id: 1223}, data => {
+    })
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   .kk-home-page
     padding: 20px
-    min-width: 1080px
+    /*min-width: 1080px*/
     display: flex
     background: #eee
     .kk-home-items
@@ -71,7 +78,7 @@ export default {}
           height: 56px
           margin-top: 57px
           background: #F0F0F0
-          background: url("../../assets/logo.png")
+          background: url("../../assets/logo.jpg")
         .kk-home-item-title
           display: block
         &:hover
