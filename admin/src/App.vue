@@ -7,8 +7,7 @@
       <div class="kk-nav-admin">
         <el-popover ref="kk-ref-popover-admin" placement="bottom" width="100" trigger="hover">
           <ul class="kk-popover-admin">
-            <li><span>登录</span></li>
-            <li><span>退出</span></li>
+            <li><el-button type="text" @click="kk_doLogout">退出</el-button></li>
           </ul>
         </el-popover>
         <span v-popover:kk-ref-popover-admin v-show="kk_logined"><i class="el-icon-setting"></i></span>
@@ -84,11 +83,19 @@ export default {
       return this.$store.state.logined
     }
   },
-  created () {
-
-  },
-  mounted () {
-    // this.$router.push('home-page')
+  methods: {
+    kk_doLogout () {
+      this.POST(this.$API.URI.AUTH_LOGOUT, {}, data => {
+        if (data.errcode === this.$API.ErrCode.OK) {
+          this.$message({
+            message: '退出成功',
+            type: 'success'
+          })
+          this.$store.commit('changeLoginedState', false)
+          this.$router.push('login-page')
+        }
+      })
+    }
   }
 }
 </script>
