@@ -50,7 +50,7 @@ export default {
         })
         return
       }
-      this.POST(this.$API.URI.LOGIN, {
+      this.POST(this.$API.URI.AUTH_LOGIN, {
         account: account,
         password: password
       }, data => {

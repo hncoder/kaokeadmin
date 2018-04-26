@@ -5,7 +5,7 @@
         :modifyOperation="modifyOperation"
         :deleteOperation="deleteOperation"
         :viewOperation="viewOperation"
-        :editListItems="editListItems"></EditList>
+        :editListItems="editSets"></EditList>
     </div>
 </template>
 
@@ -19,13 +19,7 @@ export default {
   },
   data () {
     return {
-      editListItems: [
-        {
-          id: 123,
-          title: '英语作文讲解',
-          avatar: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525093752&di=a6abad0cea586161ebd72e46728e2627&imgtype=jpg&er=1&src=http%3A%2F%2Fefile.kaoyan.com%2Fimg%2F2015%2F08%2F03%2F175432_55bf3a586217a.jpg'
-        }
-      ],
+      editSets: [],
       editNavItem: {
         name: '全部课程',
         to: 'sets-view',
@@ -67,6 +61,11 @@ export default {
   },
   mounted () {
     this.$util.resetEditNavItem(this.editNavItem)
+    this.GET(this.$API.URI.SET_ALL, {}, data => {
+      if (data.data instanceof Array) {
+        this.editSets = data.data
+      }
+    })
   }
 }
 </script>

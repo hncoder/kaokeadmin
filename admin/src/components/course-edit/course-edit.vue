@@ -22,7 +22,7 @@ export default {
     }
   },
   mounted () {
-    this.$router.push({name: 'sets-view'})
+    // this.$router.push({name: 'sets-view'})
   }
 }
 </script>

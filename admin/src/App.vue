@@ -28,7 +28,7 @@
             <i class="el-icon-menu"></i>
             <span>首页</span>
           </el-menu-item>
-          <el-menu-item index="kk-menu-course-edit" :disabled="kk_allMenuDisabled" :route="{name:'course-edit'}">
+          <el-menu-item index="kk-menu-course-edit" :disabled="kk_allMenuDisabled" :route="{name:'sets-view'}">
             <template slot="title">
               <i class="el-icon-edit-outline"></i>
               <span>课程编辑</span>

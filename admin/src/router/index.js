@@ -30,7 +30,6 @@ export default new Router({
     },
     {
       path: '/course-edit',
-      name: 'course-edit',
       component: courseEdit,
       children: [
         {
@@ -55,7 +54,7 @@ export default new Router({
         },
         {
           path: '/',
-          redirect: 'sets-view'
+          redirect: {path: 'sets-view'}
         }
       ]
     },

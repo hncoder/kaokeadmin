@@ -1,38 +1,38 @@
 <template>
   <div class="kk-home-page">
     <div class="kk-home-items">
-      <div class="kk-home-item" @click="$router.push('course-edit')">
-        <span class="kk-home-item-icon"></span>
-        <span class="kk-home-item-title">标题</span>
+      <div class="kk-home-item" @click="$router.push({name:'sets-view'})">
+        <img class="kk-home-item-icon" src="../../assets/logo.jpg"/>
+        <span class="kk-home-item-title">课程数目：2</span>
       </div>
-      <div class="kk-home-item">
-        <span class="kk-home-item-icon"></span>
-        <span class="kk-home-item-title">标题</span>
-      </div>
-      <div class="kk-home-item">
-        <span class="kk-home-item-icon"></span>
-        <span class="kk-home-item-title">标题</span>
-      </div>
-      <div class="kk-home-item">
-        <span class="kk-home-item-icon"></span>
-        <span class="kk-home-item-title">标题</span>
-      </div>
-      <div class="kk-home-item">
-        <span class="kk-home-item-icon"></span>
-        <span class="kk-home-item-title">标题</span>
-      </div>
-      <div class="kk-home-item">
-        <span class="kk-home-item-icon"></span>
-        <span class="kk-home-item-title">标题</span>
-      </div>
-      <div class="kk-home-item">
-        <span class="kk-home-item-icon"></span>
-        <span class="kk-home-item-title">标题</span>
-      </div>
-      <div class="kk-home-item">
-        <span class="kk-home-item-icon"></span>
-        <span class="kk-home-item-title">标题</span>
-      </div>
+      <!--<div class="kk-home-item">-->
+        <!--<span class="kk-home-item-icon"></span>-->
+        <!--<span class="kk-home-item-title">标题</span>-->
+      <!--</div>-->
+      <!--<div class="kk-home-item">-->
+        <!--<span class="kk-home-item-icon"></span>-->
+        <!--<span class="kk-home-item-title">标题</span>-->
+      <!--</div>-->
+      <!--<div class="kk-home-item">-->
+        <!--<span class="kk-home-item-icon"></span>-->
+        <!--<span class="kk-home-item-title">标题</span>-->
+      <!--</div>-->
+      <!--<div class="kk-home-item">-->
+        <!--<span class="kk-home-item-icon"></span>-->
+        <!--<span class="kk-home-item-title">标题</span>-->
+      <!--</div>-->
+      <!--<div class="kk-home-item">-->
+        <!--<span class="kk-home-item-icon"></span>-->
+        <!--<span class="kk-home-item-title">标题</span>-->
+      <!--</div>-->
+      <!--<div class="kk-home-item">-->
+        <!--<span class="kk-home-item-icon"></span>-->
+        <!--<span class="kk-home-item-title">标题</span>-->
+      <!--</div>-->
+      <!--<div class="kk-home-item">-->
+        <!--<span class="kk-home-item-icon"></span>-->
+        <!--<span class="kk-home-item-title">标题</span>-->
+      <!--</div>-->
     </div>
   </div>
 </template>
@@ -64,10 +64,11 @@ export default {
       .kk-home-item
         text-align: center
         display: inline-block
-        width: 24.5%
-        height: 230px
-        border-right: 1px solid #D8D8D8
-        border-bottom: 1px solid #D8D8D8
+        width: 200px
+        height: 150px
+        border: 1px solid #D8D8D8
+        /*border-right: 1px solid #D8D8D8*/
+        /*border-bottom: 1px solid #D8D8D8*/
         background: #ffffff
         font-size: 15px
         color: #333333
@@ -76,9 +77,9 @@ export default {
           display: inline-block
           width: 56px
           height: 56px
-          margin-top: 57px
+          margin-top: 30px
           background: #F0F0F0
-          background: url("../../assets/logo.jpg")
+          /*background: url("../../assets/logo.jpg")*/
         .kk-home-item-title
           display: block
         &:hover

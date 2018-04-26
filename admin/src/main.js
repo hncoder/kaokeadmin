@@ -23,6 +23,7 @@ Vue.use(ElementUI)
 Vue.prototype.POST = function (URI, params, respCallback) {
   this.$http.post(URI, params).then(response => {
     let data = response.data
+    console.log(data)
     if (data.errcode === this.$API.ErrCode.UNAUTHORIZED) {
       this.$store.commit('changeLoginedState', false)
       this.$router.push('login-page')
@@ -38,6 +39,7 @@ Vue.prototype.POST = function (URI, params, respCallback) {
 Vue.prototype.GET = function (URI, params, respCallback) {
   this.$http.get(URI, {params: params}).then(response => {
     let data = response.data
+    console.log(data)
     if (data.errcode === this.$API.ErrCode.UNAUTHORIZED) {
       this.$store.commit('changeLoginedState', false)
       this.$router.push('login-page')

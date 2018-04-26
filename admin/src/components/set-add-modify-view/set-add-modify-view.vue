@@ -20,9 +20,9 @@
                 <el-input v-model="detail.avatar" placeholder="封面链接"></el-input>
               </el-form-item>
             </el-form-item>
-            <el-form-item label="价格(元)" required>
+            <el-form-item label="价格(分)" required>
               <el-col :span="4">
-                <el-input v-model="detail.market_p" type="number" placeholder="原价"></el-input>
+                <el-input v-model="detail.origin_p" type="number" placeholder="原价"></el-input>
               </el-col>
               <el-col class="line" :span="2">-</el-col>
               <el-col :span="4">
@@ -65,9 +65,10 @@ export default {
         to: 'set-add-modify-view',
         params: this.$route.params
       },
+      setID: this.$route.params.set_id,
       detail: {
         title: '',
-        market_p: 0,
+        origin_p: 0,
         discount_p: 0,
         avatar: '',
         desc: '',
@@ -94,7 +95,20 @@ export default {
     kk_onEditSubmit (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('submit!')
+          if (this.setID > 0) {
+            let URI = this.$API.URI.SET_MOD.replace('<int:set_id>', this.setID)
+            this.POST(URI, this.detail, data => {
+              if (data.errcode === this.$API.ErrCode.OK) {
+                this.$router.back()
+              }
+            })
+          } else {
+            this.POST(this.$API.URI.SET_ADD, this.detail, data => {
+              if (data.errcode === this.$API.ErrCode.OK) {
+                this.$router.back()
+              }
+            })
+          }
         } else {
           console.log('error submit!!')
           return false
@@ -119,6 +133,14 @@ export default {
   },
   mounted () {
     this.$util.resetEditNavItem(this.editNavItem)
+    if (this.setID > 0) {
+      let URI = this.$API.URI.SET.replace('<int:set_id>', this.setID)
+      this.GET(URI, {}, data => {
+        if (data.data instanceof Object) {
+          this.detail = data.data
+        }
+      })
+    }
   }
 }
 </script>
