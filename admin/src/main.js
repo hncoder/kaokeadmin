@@ -26,7 +26,7 @@ Vue.prototype.POST = function (URI, params, respCallback) {
     console.log(data)
     if (data.errcode === this.$API.ErrCode.UNAUTHORIZED) {
       this.$store.commit('changeLoginedState', false)
-      this.$router.push('login-page')
+      this.$router.push({name: 'login-page'})
     } else if (data.errcode === this.$API.ErrCode.OK) {
       this.$store.commit('changeLoginedState', true)
     }
@@ -42,7 +42,7 @@ Vue.prototype.GET = function (URI, params, respCallback) {
     console.log(data)
     if (data.errcode === this.$API.ErrCode.UNAUTHORIZED) {
       this.$store.commit('changeLoginedState', false)
-      this.$router.push('login-page')
+      this.$router.push({name: 'login-page'})
     } else if (data.errcode === this.$API.ErrCode.OK) {
       this.$store.commit('changeLoginedState', true)
     }

@@ -92,7 +92,7 @@ export default {
             type: 'success'
           })
           this.$store.commit('changeLoginedState', false)
-          this.$router.push('login-page')
+          this.$router.push({name: 'login-page'})
         }
       })
     }
